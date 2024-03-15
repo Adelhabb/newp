@@ -1,6 +1,6 @@
 pm_api_url      = "https://your-proxmox-host.com:8006/api2/json"
-pm_user         = "your-proxmox-username"
-pm_password     = "your-proxmox-password"
+pm_user         = "root"
+pm_password     = "adminprox"
 clone_template  = "your-template-name"
 target_node     = "your-target-node"
 target_storage  = "your-target-storage"
