@@ -1,0 +1,9 @@
+pm_api_url      = "https://your-proxmox-host.com:8006/api2/json"
+pm_user         = "your-proxmox-username"
+pm_password     = "your-proxmox-password"
+clone_template  = "your-template-name"
+target_node     = "your-target-node"
+target_storage  = "your-target-storage"
+bridge          = "your-bridge-name"
+disk_size       = "10G"
+os_type         = "l26"  # Adjust this value if needed
