@@ -1,9 +1,29 @@
-pm_api_url      = "https://your-proxmox-host.com:8006/api2/json"
-pm_user         = "root"
-pm_password     = "adminprox"
-clone_template  = "your-template-name"
-target_node     = "your-target-node"
-target_storage  = "your-target-storage"
-bridge          = "your-bridge-name"
-disk_size       = "10G"
-os_type         = "l26"  # Adjust this value if needed
+# Configuration du fournisseur Proxmox
+provider "proxmox" {
+  pm_api_url      = "https://your-proxmox-url.com"
+  pm_user         = "your-proxmox-username"
+  pm_password     = "your-proxmox-password"
+  pm_tls_insecure = true
+}
+
+# Création de la machine virtuelle
+resource "proxmox_vm_qemu" "ubuntu_vm" {
+  name            = "ubuntu-vm"
+  clone           = "template"
+  target_node     = "your-proxmox-node"
+  target_storage  = "your-proxmox-storage"
+  full_clone      = true
+
+  network {
+    model  = "virtio"
+    bridge = "your-bridge-name"
+  }
+
+  disk {
+    id      = 0
+    storage = "your-proxmox-storage"
+    size    = "10G" # Ajustez la taille du disque selon vos besoins
+  }
+
+  os_type = "ubuntu" # Ajustez le type de système d'exploitation selon votre template
+}
