@@ -1,13 +1,18 @@
 pipeline {
     agent any
-    environment {
-        TF_CLI_ARGS = "-input=false" // Set Terraform to non-interactive mode
-    }
     stages {
-        stage('Checkout') {
+        stage('Test GitHub Connection') {
             steps {
-                // Checkout your Terraform files from version control
-                git 'https://your-repo-url.git'
+                script {
+                    def gitUrl = 'https://github.com/your-username/your-repo.git'
+                    // Checkout the GitHub repository using configured credentials
+                    checkout([$class: 'GitSCM',
+                              branches: [[name: '*/main']],
+                              doGenerateSubmoduleConfigurations: false,
+                              extensions: [[$class: 'CloneOption', depth: 1, noTags: false, reference: '', shallow: true]],
+                              userRemoteConfigs: [[url: gitUrl]]])
+                    echo "Connection to GitHub repository successful"
+                }
             }
         }
         stage('Terraform Init') {
