@@ -1,62 +1,45 @@
-# Déclaration des variables
 variable "pm_api_url" {
   description = "URL de l'API Proxmox"
+  default     = "https://192.168.127.134:8006/api2/json"
 }
 
 variable "pm_user" {
-  description = "Nom d'utilisateur pour l'authentification Proxmox"
+  description = "Nom d'utilisateur Proxmox"
+  default     = "root"
 }
 
 variable "pm_password" {
-  description = "Mot de passe pour l'authentification Proxmox"
+  description = "Mot de passe Proxmox"
+  default     = "adminprox"
 }
 
 variable "target_node" {
   description = "Nom du nœud Proxmox"
+  default     = "pve"  // Remplacez "pve" par le nom de votre nœud Proxmox
 }
 
 variable "target_storage" {
   description = "Nom du stockage Proxmox"
+  default     = "local-lvm"  // Remplacez "local" par le nom de votre stockage Proxmox
 }
 
 variable "bridge" {
-  description = "Nom du pont réseau"
+  description = "Nom du réseau bridge"
+  default     = "vmbr0"  // Remplacez "vmbr0" par le nom de votre pont réseau Proxmox
 }
 
 variable "disk_size" {
-  description = "Taille du disque pour la VM"
+  description = "Taille du disque pour la machine virtuelle"
+  default     = "1G"    // Remplacez "10G" par la taille souhaitée pour le disque de la VM
 }
 
 variable "os_type" {
   description = "Type du système d'exploitation"
+  default     = "l26" // Remplacez "ubuntu" par le type de système d'exploitation de votre choix
 }
 
-# Configuration du fournisseur Proxmox
-provider "proxmox" {
-  pm_api_url      = var.pm_api_url
-  pm_user         = var.pm_user
-  pm_password     = var.pm_password
-  pm_tls_insecure = true
-}
-
-# Création de la machine virtuelle
-resource "proxmox_vm_qemu" "ubuntu_vm" {
-  name            = "ubuntu-vm"
-  clone           = "template"
-  target_node     = var.target_node
-  target_storage  = var.target_storage
-  full_clone      = true
-
-  network {
-    model  = "virtio"
-    bridge = var.bridge
-  }
-
-  disk {
-    id      = 0
-    storage = var.target_storage
-    size    = var.disk_size
-  }
-
-  os_type = var.os_type
+variable "template" {
+  description = "Modèle pour la création de la machine virtuelle"
+  type        = string
+  default     = "temp"
 }
