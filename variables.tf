@@ -1,6 +1,6 @@
 variable "pm_api_url" {
   description = "URL de l'API Proxmox"
-  default     = "https://192.168.127.134:8006/api2/json"
+  default     = "https://192.168.217.128:8006/#v1:0:18:4:9:=contentIso:::7::=apitokens"
 }
 
 variable "pm_user" {
