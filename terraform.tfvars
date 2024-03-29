@@ -1,4 +1,4 @@
-pm_api_url      = "https://192.168.217.128:8006/#v1:0:18:4:::::7::=apitokens"
+pm_api_url      = "https://192.168.217.128:8006/api2/json"
 pm_user         = "root@pam!adel"
 pm_password     = "1bfa535b-4b90-4a25-9c50-4a98daca8187"
 template        = "temp"
