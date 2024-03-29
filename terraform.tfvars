@@ -1,8 +1,8 @@
 # Configuration du fournisseur Proxmox
 provider "proxmox" {
-  pm_api_url      = "https://your-proxmox-url.com"
-  pm_user         = "your-proxmox-username"
-  pm_password     = "your-proxmox-password"
+  pm_api_url      = "https://192.168.217.128:8006/"
+  pm_user         = "root"
+  pm_password     = "adminprox"
   pm_tls_insecure = true
 }
 
