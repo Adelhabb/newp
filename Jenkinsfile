@@ -35,7 +35,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 // Plan Terraform changes
-               sh 'terraform plan -var="template=tmpsouha" -out=tfplan'
+               sh 'terraform plan -var="template=temp" -out=tfplan'
             }
         }
         stage('Terraform Apply') {
