@@ -4,7 +4,7 @@ pipeline {
         stage('Test GitHub Connection') {
             steps {
                 script {
-                    def gitUrl = 'https://github.com/your-username/your-repo.git'
+                    def gitUrl = 'https://github.com/Adelhabb/newp/blob/main/Jenkinsfile'
                     // Checkout the GitHub repository using configured credentials
                     checkout([$class: 'GitSCM',
                               branches: [[name: '*/main']],
