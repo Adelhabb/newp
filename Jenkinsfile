@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PM_API_URL = "https://192.168.217.128:8006/#v1:0:18:4:9:=contentIso:::7::=apitokens"
+        PM_API_URL = "https://192.168.217.128:8006/api2/json"
         PM_USER = "root"
         PM_PASSWORD = "adminprox"
         TEMPLATE = "temp"
