@@ -8,7 +8,7 @@ pipeline {
         TARGET_NODE = "pve"
         TARGET_STORAGE = "local-lvm"
         BRIDGE = "vmbr0"
-        DISK_SIZE = "1G"
+        DISK_SIZE = "5G"
         OS_TYPE = "l26"
     }
     stages {
