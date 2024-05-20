@@ -5,6 +5,6 @@ template        = "temp"
 target_node     = "pve"
 target_storage  = "local-lvm"
 bridge          = "vmbr0"
-disk_size       = "5Go"
+disk_size       = "5120M"
 os_type         = "l26"
 
